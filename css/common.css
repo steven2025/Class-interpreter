@@ -328,3 +328,127 @@ textarea { resize: vertical; }
     grid-template-columns: 1fr;
   }
 }
+
+
+.teacher-dashboard-minimal {
+  max-width: 960px;
+  grid-template-columns: 1fr;
+}
+.teacher-minimal-card {
+  padding: 28px;
+}
+.teacher-topbar-minimal nav {
+  align-items: center;
+}
+.teacher-minimal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.teacher-minimal-header h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+}
+.teacher-minimal-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.teacher-minimal-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+.minimal-panel {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #f8fafc;
+  padding: 18px;
+}
+.qr-panel-minimal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+.qr-canvas-minimal {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 12px;
+}
+.stats-panel-minimal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 360px;
+}
+.minimal-label {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: block;
+}
+.minimal-big-number {
+  font-size: 72px;
+  line-height: 1;
+}
+.minimal-status {
+  font-size: 30px;
+  line-height: 1.2;
+}
+.minimal-subtext {
+  font-size: 14px;
+}
+.minimal-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 20px 0;
+}
+.teacher-minimal-footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+.minimal-foot-item {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  padding: 14px 16px;
+}
+.minimal-foot-item strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 20px;
+}
+@media (max-width: 900px) {
+  .teacher-minimal-grid,
+  .teacher-minimal-footer {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .teacher-minimal-header,
+  .teacher-minimal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .teacher-minimal-header h1 {
+    font-size: 26px;
+  }
+  .minimal-big-number {
+    font-size: 56px;
+  }
+  .minimal-status {
+    font-size: 24px;
+  }
+  .qr-panel-minimal,
+  .stats-panel-minimal {
+    min-height: auto;
+  }
+}
