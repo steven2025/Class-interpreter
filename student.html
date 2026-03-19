@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学生端 - 多语课堂实时字幕系统</title>
+  <link rel="stylesheet" href="./css/common.css" />
+</head>
+<body class="student-body">
+  <main class="student-shell">
+    <section class="student-header">
+      <div>
+        <strong id="studentClassTitle">未连接课堂</strong>
+        <p id="studentConnectionText" class="muted">请通过二维码或带 classId 的链接打开。</p>
+      </div>
+      <span id="studentStatusBadge" class="badge">待连接</span>
+    </section>
+
+    <section class="subtitle-card">
+      <div class="label-row">
+        <span>主语言</span>
+        <span id="sourceLangLabel">--</span>
+      </div>
+      <div id="subtitleSource" class="subtitle-source">等待教师发送字幕…</div>
+      <div class="divider"></div>
+      <div class="label-row">
+        <span>目标语言</span>
+        <div class="lang-switcher">
+          <button class="btn small" id="toggleLangPanelBtn">语言</button>
+          <div class="lang-panel hidden" id="langPanel">
+            <select id="studentLangSelect"></select>
+          </div>
+        </div>
+      </div>
+      <div id="subtitleTarget" class="subtitle-target">请选择语言并等待字幕。</div>
+      <div id="importantBanner" class="important-banner hidden">教师已推送重点句</div>
+    </section>
+
+    <section class="student-actions">
+      <button class="btn" id="historyBtn">历史</button>
+      <button class="btn" id="saveNoteBtn">存为笔记</button>
+      <button class="btn" id="refreshBtn">刷新课堂信息</button>
+    </section>
+
+    <section class="card hidden" id="historyPanel">
+      <h2>最近字幕历史</h2>
+      <ul id="subtitleHistoryList" class="history-list"></ul>
+    </section>
+
+    <section class="card hidden" id="notesPanel">
+      <h2>我的笔记</h2>
+      <ul id="notesList" class="history-list"></ul>
+    </section>
+  </main>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/store.js"></script>
+  <script src="./js/student.js"></script>
+</body>
+</html>

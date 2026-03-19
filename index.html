@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多语课堂实时字幕系统</title>
+  <link rel="stylesheet" href="./css/common.css" />
+</head>
+<body>
+  <main class="landing">
+    <div class="card hero">
+      <h1>多语课堂实时字幕系统</h1>
+      <p>适合部署到 GitHub Pages 的前端原型。教师端负责开课与生成二维码，学生端扫码后在手机或平板浏览器中接收双语字幕。</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="./teacher.html">进入教师端</a>
+        <a class="btn" href="./student.html">打开学生端</a>
+      </div>
+    </div>
+
+    <div class="grid-two">
+      <section class="card">
+        <h2>当前版本能做什么</h2>
+        <ul>
+          <li>教师创建课堂并生成学生二维码</li>
+          <li>学生扫码或打开链接直接进入课堂</li>
+          <li>支持上下双语字幕显示</li>
+          <li>支持语言切换、历史记录、存为笔记</li>
+          <li>内置“模拟实时模式”，便于你先做前端演示</li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2>后续接腾讯云时替换什么</h2>
+        <ul>
+          <li>将模拟推送替换为 WebSocket / API 网关</li>
+          <li>将手动发送字幕替换为 ASR 实时转写</li>
+          <li>将本地术语表替换为云端术语表</li>
+          <li>将本地笔记替换为云端保存</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
