@@ -7,136 +7,64 @@
   <link rel="stylesheet" href="./css/common.css" />
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar teacher-topbar-minimal">
     <div>
-      <strong>教师控制台</strong>
+      <strong>教师端</strong>
       <span id="connectionModeBadge" class="badge">模拟模式</span>
     </div>
     <nav>
       <a href="./index.html">首页</a>
       <a href="./student.html" target="_blank" rel="noopener">学生端预览</a>
-      <button class="btn small" id="toggleMenuBtn" type="button">菜单</button>
     </nav>
   </header>
 
-  <main class="dashboard teacher-dashboard-simple">
-    <section class="card control-panel">
-      <div class="section-head">
+  <main class="dashboard teacher-dashboard-minimal">
+    <section class="card teacher-minimal-card full-span">
+      <div class="teacher-minimal-header">
         <div>
-          <h1>开课设置</h1>
-          <p class="muted">主菜单精简后，开始上课即自动进入发射模式。</p>
+          <h1>课堂发射台</h1>
+          <p class="muted">只保留 5 个核心元素：开始上课、结束课堂、二维码、在线人数、发射状态。</p>
         </div>
         <span id="transmitBadge" class="badge">待机中</span>
       </div>
 
-      <div class="form-grid">
-        <label>
-          教师姓名
-          <input id="teacherName" type="text" placeholder="例如：Steven Wang" />
-        </label>
-        <label>
-          授课语言
-          <select id="sourceLang">
-            <option value="zh">中文</option>
-            <option value="en">English</option>
-            <option value="ja">日本語</option>
-          </select>
-        </label>
-        <label>
-          课堂标题
-          <input id="classTitle" type="text" placeholder="例如：汉语语法课" />
-        </label>
-        <label>
-          学生可选语言
-          <input id="targetLangs" type="text" value="en,ja,th,es" />
-        </label>
-      </div>
-
-      <div class="actions wrap">
+      <div class="teacher-minimal-actions">
         <button class="btn btn-primary" id="startClassBtn">开始上课</button>
         <button class="btn" id="endClassBtn" disabled>结束课堂</button>
       </div>
 
-      <div class="status-grid compact-gap">
-        <div class="status-item">
-          <span>课堂号</span>
+      <div class="teacher-minimal-grid">
+        <div class="minimal-panel qr-panel-minimal">
+          <div class="minimal-label">二维码</div>
+          <div id="qrCanvas" class="qr-canvas-minimal"></div>
+          <div class="minimal-subtext">开课后自动生成，学生扫码即可进入字幕页</div>
+        </div>
+
+        <div class="minimal-panel stats-panel-minimal">
+          <div class="minimal-stat-block">
+            <span class="minimal-label">在线人数</span>
+            <strong id="studentCountText" class="minimal-big-number">0</strong>
+          </div>
+          <div class="minimal-divider"></div>
+          <div class="minimal-stat-block">
+            <span class="minimal-label">发射状态</span>
+            <strong id="transmitModeText" class="minimal-status">未开启</strong>
+            <p id="transmitHintText" class="muted minimal-subtext">点击“开始上课”后自动进入发射模式</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="teacher-minimal-footer">
+        <div class="minimal-foot-item">
+          <span class="minimal-label">课堂号</span>
           <strong id="classIdText">未开始</strong>
         </div>
-        <div class="status-item">
-          <span>在线学生</span>
-          <strong id="studentCountText">0</strong>
-        </div>
-        <div class="status-item">
-          <span>当前状态</span>
+        <div class="minimal-foot-item">
+          <span class="minimal-label">课堂状态</span>
           <strong id="classStatusText">未开课</strong>
         </div>
       </div>
     </section>
-
-    <section class="card qr-panel">
-      <div class="section-head">
-        <div>
-          <h2>学生加入二维码</h2>
-          <p class="muted">开课后自动生成，学生扫码直达字幕页。</p>
-        </div>
-      </div>
-      <div id="qrCanvas"></div>
-      <div class="join-url-wrap">
-        <input id="joinUrl" type="text" readonly placeholder="开始课堂后自动生成链接" />
-        <button class="btn" id="copyJoinUrlBtn" disabled>复制链接</button>
-      </div>
-    </section>
-
-    <section class="card full-span">
-      <div class="section-head">
-        <div>
-          <h2>发射状态</h2>
-          <p class="muted">开始上课后，系统默认进入自动发射模式。接入腾讯云 ASR / 翻译后，教师讲话会自动推送到学生端。</p>
-        </div>
-      </div>
-      <div class="transmit-panel">
-        <div class="transmit-state-box">
-          <span class="muted">当前发射模式</span>
-          <strong id="transmitModeText">未开启</strong>
-          <p id="transmitHintText" class="muted">点击“开始上课”后自动切换为发射中。</p>
-        </div>
-        <div class="transmit-state-box">
-          <span class="muted">最近 5 条原文</span>
-          <ul id="recentSourceList" class="history-list tight-list"></ul>
-        </div>
-        <div class="transmit-state-box">
-          <span class="muted">系统消息</span>
-          <ul id="systemLogList" class="history-list tight-list"></ul>
-        </div>
-      </div>
-    </section>
-
-    <aside id="teacherMenuPanel" class="card full-span hidden teacher-hidden-menu">
-      <div class="section-head">
-        <div>
-          <h2>隐藏菜单</h2>
-          <p class="muted">这里放不常用的配置和演示功能，主界面保持简洁。</p>
-        </div>
-      </div>
-
-      <section class="menu-block">
-        <h3>术语表上传</h3>
-        <div class="inline-row">
-          <input id="glossaryFile" type="file" accept=".txt,.csv,.json" />
-          <button class="btn" id="loadGlossaryBtn">读取术语表</button>
-        </div>
-        <pre id="glossaryPreview" class="preview-box">尚未加载术语表。</pre>
-      </section>
-
-      <section class="menu-block">
-        <h3>开发调试（隐藏）</h3>
-        <p class="muted">只用于前端演示。正式接入腾讯云后，这部分可删除。</p>
-        <div class="actions wrap">
-          <button class="btn" id="simulateBtn" disabled>模拟识别一句</button>
-          <button class="btn" id="pushImportantBtn" disabled>模拟重点句</button>
-        </div>
-      </section>
-    </aside>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
