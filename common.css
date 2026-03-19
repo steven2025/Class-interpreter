@@ -1,0 +1,330 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --primary: #2563eb;
+  --primary-soft: #dbeafe;
+  --success: #047857;
+  --warn: #b45309;
+  --danger: #b91c1c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+a { color: var(--primary); text-decoration: none; }
+button, input, select, textarea {
+  font: inherit;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+textarea { resize: vertical; }
+.btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.btn.small {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 13px;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.topbar nav {
+  display: flex;
+  gap: 16px;
+}
+.dashboard, .landing, .student-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.dashboard {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+}
+.full-span { grid-column: 1 / -1; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+.hero {
+  margin-bottom: 20px;
+  padding: 32px;
+}
+.grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.form-grid label, .control-panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.actions.wrap { flex-wrap: wrap; }
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.status-item {
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+}
+.status-item span {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.muted {
+  color: var(--muted);
+}
+.join-url-wrap, .inline-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.join-url-wrap input { flex: 1; }
+.preview-box {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 14px;
+  border-radius: 14px;
+  min-height: 100px;
+  white-space: pre-wrap;
+}
+.split-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.history-list li {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  background: #fff;
+}
+.student-body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #eef4ff 0%, #f8fafc 40%, #f5f7fb 100%);
+}
+.student-shell {
+  max-width: 760px;
+}
+.student-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.subtitle-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
+}
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.subtitle-source {
+  font-size: 30px;
+  line-height: 1.45;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.subtitle-target {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: #111827;
+}
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 18px 0;
+}
+.student-actions {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0;
+}
+.hidden { display: none !important; }
+.important-banner {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: #fef3c7;
+  color: var(--warn);
+  border-radius: 12px;
+  font-weight: 600;
+}
+.lang-switcher {
+  position: relative;
+}
+.lang-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  min-width: 160px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+@media (max-width: 900px) {
+  .dashboard, .grid-two, .form-grid, .split-preview {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .topbar {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+  .dashboard, .landing, .student-shell {
+    padding: 16px;
+  }
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+  .student-header, .student-actions, .join-url-wrap, .inline-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .subtitle-source {
+    font-size: 24px;
+  }
+  .subtitle-target {
+    font-size: 20px;
+  }
+}
+
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.teacher-dashboard-simple {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+.compact-gap {
+  margin-top: 16px;
+}
+.transmit-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.transmit-state-box {
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+}
+.transmit-state-box strong {
+  display: block;
+  margin: 8px 0 10px;
+  font-size: 20px;
+}
+.teacher-hidden-menu {
+  border-style: dashed;
+}
+.menu-block + .menu-block {
+  margin-top: 20px;
+}
+.tight-list {
+  max-height: 240px;
+  overflow: auto;
+}
+#qrCanvas img, #qrCanvas canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 14px;
+}
+@media (max-width: 900px) {
+  .teacher-dashboard-simple, .transmit-panel {
+    grid-template-columns: 1fr;
+  }
+}
